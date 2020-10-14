@@ -43,7 +43,7 @@ int main(){
 	}
 	return 0;
 }
- BronKerbosch(All, Some, None):
+ 	BronKerbosch(All, Some, None):
        if Some and None are both empty:
            report All as a maximal clique //所有点已选完，且没有不能选的点,累加答案
        for each vertex v in Some: //枚举Some中的每一个元素
