@@ -143,7 +143,8 @@ int main()
      for(int i=1;i<=m;i++)
      {
          int u,v,w;
-         scanf("%d%d%d",&u,&v,&1);
+         scanf("%d%d",&u,&v);
+         w=1;
          add(u,v,w);
      }
      for(int i=1;i<=n;i++)
