@@ -103,7 +103,7 @@ int main(){
 	while(n--)
 	{
 		cin>>s;
-		for(int i=0;i<s.size();i++)ans++;
+		for(int i=0;i<s.size();i++)if(s[i]=='1')ans++;
 	}
 	cout<<ans<<endl;	
 } 
@@ -143,8 +143,7 @@ int main()
      for(int i=1;i<=m;i++)
      {
          int u,v,w;
-         scanf("%d%d",&u,&v);
-         w=1; 
+         scanf("%d%d%d",&u,&v,&1);
          add(u,v,w);
      }
      for(int i=1;i<=n;i++)
