@@ -32,7 +32,7 @@ int done(int p,int q,int z)
 		C=a[p].x*a[q].y-a[p].y*a[q].x;
 	}
 	if(A*a[z].x+B*a[z].y+C>(A*A+B*B)*a[z].r*a[z].r)return 0;
-	if((a[z].x-a[p].x)*(a[q].x-a[p].x)+(a[z].y-a[p].y)*(a[q].y-a[p].y)>0&&(a[z].x-a[q].x)*(a[p].x-a[q].x)+(a[z].y-a[q].y)*(a[p].y-a[q].y)>0)return 2;  
+	if((a[z].x-a[p].x)*(a[q].x-a[p].x)+(a[z].y-a[p].y)*(a[q].y-a[p].y)>0&&(a[z].x-a[q].x)*(a[p].x-a[q].x)+(a[z].y-a[q].y)*(a[p].y-a[q].y)>0)return 2;  //´©¹ıÕû¸öÔ² 
 	return 0; 
 }
 int main()
