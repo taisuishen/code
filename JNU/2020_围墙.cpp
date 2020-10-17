@@ -22,7 +22,7 @@ bool check(int z,int p)
 int done(int p,int q,int z)
 {
 	if(check(z,p)&&check(z,q))return 0;
-	else if((check(z,p)==0&&check(z,q)||(check(z,p)&&check(z,q)==0)))return 1;//其实一个点在圆内 穿一堵墙 
+	else if(check(z,p)^check(z,q))return 1;//其实一个点在圆内 穿一堵墙 
 	if(a[p].x==a[q].x)A=1,B=0,C=-a[p].x;
 	else if(a[p].y==a[q].y)A=0,B=1,C=-a[p].y;
 	else
@@ -41,7 +41,6 @@ int main()
 	FOR(i,1,n)a[i].x=read(),a[i].y=read(),a[i].r=read();
 	FOR(i,1,n-1)
 	{
-		ans=0;
 		FOR(j,i+1,n)
 		if(i!=j)
 		{
