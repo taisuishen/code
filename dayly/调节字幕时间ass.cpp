@@ -1,3 +1,4 @@
+/*code_by_taisuishen*/ 
 #include<bits/stdc++.h>
 using namespace std;
 string s,ho,mi,se,str;
