@@ -3,7 +3,7 @@
 using namespace std;
 string s,ho,mi,se,str;
 int l,miao,fen,hour,ss[2][5]={12,14,15,17,18,23,25,26,28,29};
-int num=-2,jin=0;
+int num,jin=0;
 void done(int i)
 {
 		miao=hour=fen=jin=0;
@@ -48,6 +48,7 @@ void done(int i)
 }
 int main()
 {
+	cin>>num;
 	freopen("a.ass","r",stdin);
 	freopen("b.ass","w",stdout);
 	while(getline(cin,s))
