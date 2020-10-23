@@ -3,7 +3,7 @@
 using namespace std;
 string s,ho,mi,se,str;
 int l,miao,fen,hour,ss[2][5]={1,3,4,6,7,18,20,21,23,24};
-int num=-2,jin=0;//修改Num值改变时间 
+int num,jin=0;//修改Num值改变时间 
 void done(int i)
 {
 		miao=hour=fen=jin=0;
@@ -47,6 +47,7 @@ void done(int i)
 int main()
 {
 	int si=0;
+	cin>>num;
 	freopen("a.srt","r",stdin);
 	freopen("b.srt","w",stdout);
 	while(getline(cin,s))
