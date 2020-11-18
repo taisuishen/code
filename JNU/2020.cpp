@@ -109,16 +109,16 @@ int main()
 
 //4.可以用栈没必要 直接模拟
 
-int i=0,j=0;
+int i=0;
 string s;
 int main()
 {
 	cin>>s;
-	for(int i=0;i<s.size();i++)
+	for(int k=0;k<s.size();k++)
 	{
-		if(s[i]=='I')i++;
-		else j++;
-		if(j>i)
+		if(s[k]=='I')i++;
+		else i--;
+		if(i<0)
 		{
 			printf("非法\n");
 			return 0;
@@ -196,26 +196,31 @@ int main()
 }
 
 
-//7.DFS
-string a,b;
-int num=0;
-void done(int i,int j,int ans)
-{
-	if(a[i]==b[j])ans++;
-	if(j+1==a.size())
-	{	num=max(num,ans);
-		return ;
-	}
-	done(i+1,j+1,ans);
-	done(i,j+1,ans);
-		
-}
+//7.DP
+#include <bits/stdc++.h>
+using namespace std;
+const int seed=131;
+const int M = 1e3+7;
+ 
+char a[M],b[M];
+int dp[M][M];
+
 int main()
 {
-	cin>>a>>b;
-	done(0,0,0);
-	cout<<num<<endl;
-	return 0;
+	ios::sync_with_stdio(false);
+    cin.tie(0);
+    while(cin>>a>>b){
+    	memset(dp,0,sizeof(0));
+    	int l=strlen(a);
+    	for(int i=1;i<=l;i++)
+			for(int j=i;j<=l;j++){
+    		dp[i][j]=max(dp[i][j-1],dp[i-1][j]);
+    		if(b[i-1]==a[j-1]&&dp[i][j]<dp[i-1][j-1]+1)dp[i][j]=dp[i-1][j-1]+1;
+		}
+		cout<<dp[l][l]<<endl;
+	}
+   
+  	return 0;
 }
 
 
