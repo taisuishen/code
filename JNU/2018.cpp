@@ -109,70 +109,39 @@ int main(){
 } 
 
 
-//5.群题目描述不清，但多半是类似求最短路 直接dijkstra+heap 起点默认为s=1 终点=n 
-#include <bits/stdc++.h>
+//5.围墙
+#include<bits/stdc++.h>
+#define maxn 100
 using namespace std;
-int n,m,s=1;
-int head[100001],dis[100001],cnt;
-bool vis[100001];
-struct qwq{
-int from,to,next;
-long long len;
-}edge[200001];
-void add(int u,int v,int w)
-{
-     cnt++;
-     edge[cnt].from=u;
-     edge[cnt].to=v;
-     edge[cnt].len=w;
-     edge[cnt].next=head[u];
-     head[u]=cnt;
-     return;
-}
+int n,xx0,xx1,yy0,yy1,ans;
 struct node{
-     int index,dist;
-     bool operator < (const node &x)const
-     {
-         return dist>x.dist;
-     }
-};
-priority_queue<node> q; 
-int main()
-{
-     scanf("%d%d",&n,&m);
-     for(int i=1;i<=m;i++)
-     {
-         int u,v,w;
-         scanf("%d%d",&u,&v);
-         w=1;
-         add(u,v,w);
-     }
-     for(int i=1;i<=n;i++)
-     dis[i]=2147483647;
-     dis[s]=0;
-     q.push(node{s,0});
-     while(!q.empty())
-     {
-         node x=q.top();
-         q.pop();
-         int u=x.index;
-         if(vis[u]) continue;
-         vis[u]=1;
-         for(int i=head[u];i;i=edge[i].next)
-         {
-             if(dis[edge[i].to]>dis[u]+edge[i].len)
-             {
-                 dis[edge[i].to]=dis[u]+edge[i].len;
-                 q.push(node{edge[i].to,dis[edge[i].to]});
-             }
-         }
-     }
-     printf("%d ",dis[n]);
-     return 0;
+    int x,y,r;
+}a[maxn];
+int dis(int x,int y,node a){
+    if((x-a.x)*(x-a.x)+(y-a.y)*(y-a.y)<=(a.r)*(a.r)) return 1;
+    return 0;
+}
+int main(){
+    cin>>n;
+    for(int i=1;i<=n;i++) cin>>a[i].x>>a[i].y>>a[i].r;
+    for(int i=1;i<n;i++)
+	for(int j=i+1;j<=n;j++)
+	{
+		xx0=a[i].x;yy0=a[i].y;
+		xx1=a[j].x;yy1=a[j].y;	
+		ans=0;
+		for(int k=1;k<=n;k++)
+    	{
+        if(dis(xx0,yy0,a[k])^dis(xx1,yy1,a[k])) ans++;
+   		}
+    	printf("%d -> %d = %d\n",i,j,ans);
+	}
+	return 0;
+
 }
 
 
-//6动规问题  可单调队列优化至O（VN） 
+//6动规问题   
 int a[7],x,f[5000],w[7]={0,1,5,10,25,100,500},tot=0;
 int main()
 {
