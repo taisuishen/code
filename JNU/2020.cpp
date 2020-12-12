@@ -213,7 +213,7 @@ int main()
     	memset(dp,0,sizeof(0));
     	int l=strlen(a);
     	for(int i=1;i<=l;i++)
-			for(int j=i;j<=l;j++){
+			for(int j=1;j<=l;j++){
     		dp[i][j]=max(dp[i][j-1],dp[i-1][j]);
     		if(b[i-1]==a[j-1]&&dp[i][j]<dp[i-1][j-1]+1)dp[i][j]=dp[i-1][j-1]+1;
 		}
