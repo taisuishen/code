@@ -3,3 +3,9 @@ https://www.cnblogs.com/Xing-Ling/p/11487554.html
 dicnic BFS找出N条路并顺便记录层次dis 然后dfs(st,ed);前向星存储 分支节点流量减去一个支路后
 如果还有flow就会接着前向星找，如果用完了 直接break;
 因为按顺序存正（单数）和反（双数） 所以0^1=1  也可以写成i+1（ps : 装B写法而已with a little better）
+EK 和 dicnic区别 就是一个单路增广 一个多路增广 dicnic层次一样的只要再上一层还剩着流量就可以继续增广
+而不用多BFS一遍
+EK 是用pre数组记录路径然后加减  
+dicnic 不用数组 直接从st开始层次遍历然后层次多路增广  上一条边的flow 跟随函数传到现在
+减去这条路到终点的最小流 减完开始同层次下一个，如果直接为0 break 回溯递归到上一个节点
+执行相同操作
