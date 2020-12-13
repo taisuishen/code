@@ -1,0 +1,5 @@
+
+https://www.cnblogs.com/Xing-Ling/p/11487554.html
+dicnic BFS找出N条路并顺便记录层次dis 然后dfs(st,ed);前向星存储 分支节点流量减去一个支路后
+如果还有flow就会接着前向星找，如果用完了 直接break;
+因为按顺序存正（单数）和反（双数） 所以0^1=1  也可以写成i+1（ps : 装B写法而已with a little better）
