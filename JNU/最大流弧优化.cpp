@@ -14,7 +14,8 @@ int bfs(int st,int ed){
         for(int i=head[x];i;i=a[i].next)
             if(a[i].flow&&!dis[to=a[i].to]){
             	dis[to]=dis[x]+1,Q[++t]=to;
-            	if(to==ed)return 1;
+				if(to==ed){
+				return 1;}
             }
     }
     return 0;
@@ -25,7 +26,7 @@ int dfs(int x,int flow){
     for(int i=cur[x];i;i=a[i].next){
     	cur[x]=i;
     	if(dis[to=a[i].to]==dis[x]+1&&(f=dfs(to,min(flow-tmp,a[i].flow)))){
-            a[i].flow-=f,a[i^1].flow+=f;
+            a[i].flow-=f;a[i^1].flow+=f;
             tmp+=f;
             if(!(flow-tmp))break;
     	}
