@@ -10,6 +10,8 @@ void add(int u,int v,int w){
     tot++,edge[tot].to=v,edge[tot].value=w,edge[tot].next=head[u],head[u]=tot;
 }
 void dijskra(){
+	for(int i=1;i<=n;i++)
+    	d[i]=INF;
     d[start]=0;
     priority_queue<pair<int,int>,vector<pair<int, int> >, greater<pair<int,int> > > q;  	
     q.push(make_pair(0,start));
@@ -31,15 +33,14 @@ void dijskra(){
 
 int main()
 {
- int n,m,u,v,w,now,minn=INF,Q;
+ 	int n,m,u,v,w;
+ 	
     cin>>n>>m>>start;
-    for(int i=1;i<=n;i++)
-    	d[i]=INF;
-    for(int i=0;i<m;i++)
-        cin>>u>>v>>w,add(u,v,w);
+    
+    for(int i=0;i<m;i++)	cin>>u>>v>>w,add(u,v,w);
 
     dijskra();
-    for(int i=1;i<=n;i++)
-    cout<<d[i]<<endl;
+    
+    for(int i=1;i<=n;i++)	cout<<d[i]<<endl;
 return 0;
 } 
