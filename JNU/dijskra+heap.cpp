@@ -5,7 +5,7 @@ struct Edge{
     int to,next,value;
 }edge[1000005];
 bool vis[20005];
-int tot,head[20005],d[20005],start;
+int tot=0,head[20005],d[20005],start,n,m;
 void add(int u,int v,int w){
     tot++,edge[tot].to=v,edge[tot].value=w,edge[tot].next=head[u],head[u]=tot;
 }
@@ -33,7 +33,7 @@ void dijskra(){
 
 int main()
 {
- 	int n,m,u,v,w;
+ 	int u,v,w;
  	
     cin>>n>>m>>start;
     
@@ -41,6 +41,6 @@ int main()
 
     dijskra();
     
-    for(int i=1;i<=n;i++)	cout<<d[i]<<endl;
+    for(int i=1;i<=n;i++)	cout<<d[i]<<" ";
 return 0;
 } 
