@@ -7,7 +7,7 @@ struct Edge{
 bool vis[20005];
 int tot=0,head[20005],d[20005],start,n,m;
 void add(int u,int v,int w){
-    tot++,edge[tot].to=v,edge[tot].value=w,edge[tot].next=head[u],head[u]=tot;
+    edge[++tot].to=v,edge[tot].value=w,edge[tot].next=head[u],head[u]=tot;
 }
 void dijskra(){
 	for(int i=1;i<=n;i++)
