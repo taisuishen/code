@@ -4,7 +4,7 @@
 using namespace std;
 const int maxn=1000;
 ll n,su[maxn],tot,anc,sum,a[maxn],sign,nn;
-bool si[maxn]={0},use[maxn]={0},ua[maxn]={0};
+bool si[maxn],use[maxn]={0},ua[maxn]={0};
 
  void get_list(){
        for(int i=2;i<=maxn;i++){
