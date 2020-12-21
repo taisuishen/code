@@ -41,6 +41,6 @@ int main(){
     cin>>n>>m>>st>>ed;
     while(m--)cin>>x>>y>>z,add(x,y,z),add(y,x,0);
     Dinic(st,ed);
-    printf("%lld",maxflow);
+    cout<<maxflow;
     return 0;
 }
