@@ -31,15 +31,15 @@ void dijskra(){
 
 int main()
 {
- int n,m,fuck,u,v,w,now,minn=INF,Q;
+ int n,m,u,v,w,now,minn=INF,Q;
     cin>>n>>m>>start;
-    for(register int i=1;i<=n;i++)
+    for(int i=1;i<=n;i++)
     	d[i]=INF;
-    for(register int i=0;i<m;i++)
+    for(int i=0;i<m;i++)
         cin>>u>>v>>w,add(u,v,w);
-    d[start]=0,now=start;
+
     dijskra();
-    for(register int i=1;i<=n;i++)
+    for(int i=1;i<=n;i++)
     cout<<d[i]<<endl;
 return 0;
 } 
